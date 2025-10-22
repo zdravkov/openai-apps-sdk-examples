@@ -19,7 +19,7 @@ const App = () => {
     const { cards } = useWidgetProps({});
     const handleClick = async (_e, title) => {
         await window.openai?.sendFollowUpMessage({
-            prompt: `Show rating for ${title}.`,
+            prompt: `Show kendo rating for ${title}.`,
         });
     }
     return (

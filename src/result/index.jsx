@@ -3,13 +3,14 @@ import { useWidgetProps } from "../use-widget-props";
 import * as React from 'react';
 import { Window } from '@progress/kendo-react-dialogs';
 import { Avatar } from '@progress/kendo-react-layout';
+import { Loader } from '@progress/kendo-react-indicators';
 
 const App = () => {
     const { title, firstName, lastName, email, phone, purpose = [] } = useWidgetProps({});
 
     return (
         <div className="example-wrapper"  style={{ minHeight: 650 }}>
-            <Window title={title} initialWidth={480}>
+           {firstName ? <Window title={title} initialWidth={480}>
                     <div className="flex flex-col gap-4">
                           <div className="flex gap-2 items-center">
                               <Avatar className="bg-[#028282]">JS</Avatar>
@@ -35,6 +36,7 @@ const App = () => {
                           </div>
                       </div>
                   </Window>
+                : <Loader/>}
         </div>
     );
 };
