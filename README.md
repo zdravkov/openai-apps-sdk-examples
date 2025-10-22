@@ -1,9 +1,22 @@
-# Apps SDK Examples Gallery
+# Apps SDK Examples 
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 This repository showcases example UI components to be used with the Apps SDK, as well as example MCP servers that expose a collection of components as tools.
 It is meant to be used as a starting point and source of inspiration to build your own apps for ChatGPT.
+
+## UI Framework
+
+This project uses **KendoReact Free** - the free version of Progress Telerik's KendoReact component library. KendoReact Free provides a comprehensive set of high-quality React UI components that are perfect for building professional applications. The free version includes essential components like buttons, inputs, grids, forms, and more without requiring a commercial license.
+
+Key benefits of using KendoReact Free:
+- 📦 No license required for free components
+- 🎨 Professional, polished UI components
+- ♿ Built-in accessibility features
+- 📱 Responsive design support
+- 🛠️ TypeScript support out of the box
+
+Learn more about KendoReact Free at [kendoreact.com](https://www.telerik.com/kendo-react-ui/components/).
 
 ## MCP + Apps SDK overview
 
@@ -21,12 +34,38 @@ The MCP servers in this demo highlight how each tool can light up widgets by com
 
 ## Repository structure
 
-- `src/` – Source for each widget example.
-- `assets/` – Generated HTML, JS, and CSS bundles after running the build step.
-- `pizzaz_server_node/` – MCP server implemented with the official TypeScript SDK.
-- `pizzaz_server_python/` – Python MCP server that returns the Pizzaz widgets.
-- `solar-system_server_python/` – Python MCP server for the 3D solar system widget.
-- `build-all.mts` – Vite build orchestrator that produces hashed bundles for every widget entrypoint.
+### Source Components (`src/`)
+
+The `src/` folder contains all the UI components and utilities that are bundled into reusable widgets:
+
+#### Widget Components (KendoReact Free)
+- **`action-button/`** - Interactive action button components
+- **`buttons/`** - Collection of KendoReact button components
+- **`cards/`** - Card layout components for displaying content
+- **`dateinputs/`** - KendoReact date picker and date input components
+- **`dialogs/`** - Modal dialogs and popup components
+- **`drawer/`** - Side navigation drawer components
+- **`dropdowns/`** - KendoReact dropdown menu and selection components
+- **`form/`** - KendoReact form components with validation
+- **`grid/`** - KendoReact data grid and table components
+- **`header/`** - Header and navigation components
+- **`loaders/`** - Loading indicators and spinners
+- **`rating/`** - Star rating and review components
+- **`result/`** - Result display and status components
+
+
+#### Utilities
+- **`utils/`** - Shared utility functions and helpers
+- **`index.css`** - Global styles and CSS variables
+- **`media-queries.ts`** - Responsive design utilities
+- **`types.ts`** - TypeScript type definitions
+- **`use-display-mode.ts`** - Display mode detection hook
+- **`use-max-height.ts`** - Maximum height calculation hook
+- **`use-openai-global.ts`** - OpenAI SDK integration utilities
+- **`use-widget-props.ts`** - Widget property management hook
+- **`use-widget-state.ts`** - Widget state management hook
+
+Each widget component is self-contained and includes its own CSS, JavaScript, and HTML template that gets bundled during the build process.
 
 ## Prerequisites
 
