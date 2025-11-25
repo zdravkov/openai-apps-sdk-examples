@@ -129,8 +129,8 @@ const widgets: KendoWidget[] = [
     html: `
 <div id="buttons-root"></div>
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/12.0.0/default/default-ocean-blue-a11y.css">
-<link rel="stylesheet" href="http://localhost:4444/buttons-2d2b.css">
-<script type="module" src="http://localhost:4444/buttons-2d2b.js"></script>
+<link rel="stylesheet" href="http://localhost:4444/buttons.css">
+<script type="module" src="http://localhost:4444/buttons.js"></script>
     `.trim(),
     responseText: "Rendered a kendo buttons!"
   },
