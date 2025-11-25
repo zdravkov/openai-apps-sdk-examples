@@ -5,6 +5,16 @@
 This repository showcases example UI components to be used with the Apps SDK, as well as example MCP servers that expose a collection of components as tools.
 It is meant to be used as a starting point and source of inspiration to build your own apps for ChatGPT.
 
+Note: If you are on Chrome and have recently updated to version 142, you will need to disable the [`local-network-access` flag](https://developer.chrome.com/release-notes/142#local_network_access_restrictions) to see the widget UI.
+
+How to disable it:
+
+1. Go to chrome://flags/
+2. Find #local-network-access-check
+3. Set it to Disabled
+
+⚠️ **Note 🚨 Make sure to restart Chrome after changing this flag for the update to take effect.**
+
 ## UI Framework
 
 This project uses **KendoReact Free** - the free version of Progress Telerik's KendoReact component library. KendoReact Free provides a comprehensive set of high-quality React UI components that are perfect for building professional applications. The free version includes essential components like buttons, inputs, grids, forms, and more without requiring a commercial license.
@@ -72,6 +82,7 @@ Each widget component is self-contained and includes its own CSS, JavaScript, an
 - Node.js 18+
 - pnpm (recommended) or npm/yarn
 - Python 3.10+ (for the Python MCP server)
+- pre-commit for formatting
 
 ## Install dependencies
 
@@ -79,6 +90,7 @@ Clone the repository and install the workspace dependencies:
 
 ```bash
 pnpm install
+pre-commit install
 ```
 
 > Using npm or yarn? Install the root dependencies with your preferred client and adjust the commands below accordingly.
@@ -93,7 +105,7 @@ pnpm run build
 
 This command runs `build-all.mts`, producing versioned `.html`, `.js`, and `.css` files inside `assets/`. Each widget is wrapped with the CSS it needs so you can host the bundles directly or ship them with your own server.
 
-To iterate locally, you can also launch the Vite dev server:
+To iterate on your components locally, you can also launch the Vite dev server:
 
 ```bash
 pnpm run dev
@@ -101,7 +113,7 @@ pnpm run dev
 
 ## Serve the static assets
 
-If you want to preview the generated bundles without the MCP servers, start the static file server after running a build:
+All of the MCP servers expect the bundled HTML, JS, and CSS to be served from the local static file server. After every build, start the server before launching any MCP processes:
 
 ```bash
 pnpm run serve
@@ -109,14 +121,14 @@ pnpm run serve
 
 The assets are exposed at [`http://localhost:4444`](http://localhost:4444) with CORS enabled so that local tooling (including MCP inspectors) can fetch them.
 
+> **Note:** The Python Pizzaz server caches widget HTML with `functools.lru_cache`. If you rebuild or manually edit files in `assets/`, restart the MCP server so it picks up the updated markup.
+
 ## Run the MCP servers
 
 The repository ships several demo MCP servers that highlight different widget bundles:
 
 - **Pizzaz (Node & Python)** – pizza-inspired collection of tools and components
 - **Solar system (Python)** – 3D solar system viewer
-
-Every tool response includes plain text content, structured JSON, and `_meta.openai/outputTemplate` metadata so the Apps SDK can hydrate the matching widget.
 
 ### Pizzaz Node server
 
@@ -161,10 +173,30 @@ You will get a public URL that you can use to add your local server to ChatGPT i
 
 For example: `https://<custom_endpoint>.ngrok-free.app/mcp`
 
+Once you add a connector, you can use it in ChatGPT conversations.
+
+You can add your app to the conversation context by selecting it in the "More" options.
+
+![more-chatgpt](https://github.com/user-attachments/assets/26852b36-7f9e-4f48-a515-aebd87173399)
+
+You can then invoke tools by asking something related. For example, for the Pizzaz app, you can ask "What are the best pizzas in town?".
+
 ## Next steps
 
 - Customize the widget data: edit the handlers in `pizzaz_server_node/src`, `pizzaz_server_python/main.py`, or the solar system server to fetch data from your systems.
 - Create your own components and add them to the gallery: drop new entries into `src/` and they will be picked up automatically by the build script.
+
+### Deploy your MCP server
+
+You can use the cloud environment of your choice to deploy your MCP server.
+
+Include this in the environment variables:
+
+```
+BASE_URL=https://your-server.com
+```
+
+This will be used to generate the HTML for the widgets so that they can serve static assets from this hosted url.
 
 ## Contributing
 
