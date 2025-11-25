@@ -100,7 +100,7 @@ const widgets: KendoWidget[] = [
     invoked: "Served a fresh action button",
     html: `
 <div id="action-button-root"></div>
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/12.0.0/default/default-ocean-blue-a11y.css">  
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/12.0.0/default/default-ocean-blue-a11y.css">
 <link rel="stylesheet" href="http://localhost:4444/action-button.css">
 <script type="module" src="http://localhost:4444/action-button.js"></script>
     `.trim(),
@@ -128,9 +128,9 @@ const widgets: KendoWidget[] = [
     invoked: "Served a fresh buttons",
     html: `
 <div id="buttons-root"></div>
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/12.0.0/default/default-ocean-blue-a11y.css"> 
-<link rel="stylesheet" href="http://localhost:4444/buttons.css">
-<script type="module" src="http://localhost:4444/buttons.js"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/12.0.0/default/default-ocean-blue-a11y.css">
+<link rel="stylesheet" href="http://localhost:4444/buttons-2d2b.css">
+<script type="module" src="http://localhost:4444/buttons-2d2b.js"></script>
     `.trim(),
     responseText: "Rendered a kendo buttons!"
   },
@@ -519,7 +519,7 @@ function createPizzazServer(): Server {
                 purpose: args.purpose
               },
               _meta: widgetDescriptorMeta(widget)
-            };         
+            };
       case "action-button":
       case "kendo-buttons":
       case "kendo-form":

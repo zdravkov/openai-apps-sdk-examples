@@ -42,7 +42,7 @@ export default function App() {
                     <div role="search">
                         <Button fillMode="flat" svgIcon={searchIcon} title="Search button" />
                     </div>
-                </AppBarSection> 
+                </AppBarSection>
 
                 <AppBarSection className="gap-2">
                     <div onClick={() => setShow(!show)} ref={anchor} role="contentinfo">

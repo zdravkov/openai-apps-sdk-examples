@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { useWidgetProps } from "../use-widget-props";
 
-import { 
+import {
     Card,
     CardHeader,
     CardTitle,

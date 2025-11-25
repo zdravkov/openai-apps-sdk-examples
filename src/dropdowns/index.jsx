@@ -25,7 +25,7 @@ const App = () => {
                     <p>AutoComplete</p>
                     <AutoComplete style={{ width: '300px' }} adaptive={true} data={sports} placeholder="Your favorite sport" />
                 </div>
-    
+
                 <div className="col-xs-12 col-sm-7 example-col">
                     <p>DropDownList</p>
                     <DropDownList style={{ width: '300px' }} adaptive={true} data={sports} defaultValue="Basketball" />

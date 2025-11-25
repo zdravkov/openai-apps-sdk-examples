@@ -20,12 +20,12 @@ const App = () => {
     const [purpose, setPurpose] = useState([]);
     const handleSubmit = async () => {
         await window.openai?.sendFollowUpMessage({
-            prompt: `Show result with 
-            firstName: ${fNValue}, 
-            lastName: ${lNValue}, 
-            jobTitle: ${titleValue}, 
-            email: ${emailValue}, 
-            phone: ${phoneValue}, 
+            prompt: `Show result with
+            firstName: ${fNValue},
+            lastName: ${lNValue},
+            jobTitle: ${titleValue},
+            email: ${emailValue},
+            phone: ${phoneValue},
             purpose: ${purpose.join(', ')}.`,
         });
     };
